@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="{% static 'images/favicon.ico' %}"
+      type="image/x-icon"
+    />
+    <title>View</title>
+    <link rel="stylesheet" href="{% static 'profile.css' %}" />
+  </head>
+<style>
+  .signUp-login {
+    margin: 0 0 0 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+  }
+  .signUp-login a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+  }
+</style>
+  <body>
+    <header>
+      <a href="/" class="logo">
+        Attendance Management system</a>
+      <!-- {% if request.user.is_staff %}
+
+      <a class="logout" href="/desplayAttendance">Today's Attendance</a>
+
+      {% else %}
+
+      <a class="" href="/desplayAttendance">My Attendance</a>
+
+      {% endif %}
+      <h3><a class="logout" href="/logout/">Logout</a></h3> -->
+      <h3 class="signUp-login">
+        {% if request.user.is_staff %}
+        <a class="pad" href="/desplayAttendance"> Today's Attendance</a>
+        {% else %}
+
+        <a class="pad" href="/desplayAttendance"> My Attendance</a>
+        {% endif %}
+        <a class="pad" href="/logout/"> Logout</a>
+      </h3>
+    </header>
+
+    <main>
+      <div class="graphics">
+        <img
+          class="graphic-img"
+          src="{% static 'images/profile-graphic.svg' %}"
+          alt=""
+        />
+      </div>
+
+      <div class="profile-info">
+        <div class="user-profile-image-box">
+          <form class="user-profile-image-box" action="/addimage">
+            {% if request.user.is_staff %}
+            <label for="img"
+              ><img
+                class="profile-image"
+                src="{{request.user.Profile.image.url}}"
+                alt=""
+            /></label>
+            <input
+              style="visibility: hidden; width: 0; height: 0"
+              type="image"
+              id="img"
+              name="img"
+            />
+            {% else %} {% if images %}
+            <img
+              class="profile-image"
+              src="/media/Attendance/{{user.username}}.jpg"
+            />
+
+            {% else %}
+            <p>No image available.</p>
+            {% endif %} {% endif %}
+            <input type="submit" value="Add image" />
+          </form>
+        </div>
+
+        <div class="user-info">
+          <div class="label-data">
+            <div class="label">Name</div>
+
+            <div class="data">{{user.first_name}}</div>
+          </div>
+
+          <div class="label-data">
+            <div class="label">Enrollment Number</div>
+
+            <div class="data">{{user.username}}</div>
+          </div>
+
+          <div class="label-data">
+            <div class="label">Class</div>
+
+            <div class="data">{{user.last_name}}</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

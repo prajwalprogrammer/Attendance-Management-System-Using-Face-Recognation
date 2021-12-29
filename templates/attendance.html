@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Table V05</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{%static 'util.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'main.css' %}" />
+    <!--===============================================================================================-->
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">
+        Attendance Management system <br />
+        using Face Recognation</a
+      >
+      <h3><a class="logout" href="/logout/">Logout</a></h3>
+    </header>
+    <main>
+      <div class="container-table100">
+        <div class="wrap-table100-nextcols js-pscroll">
+          <div class="table100 ver1">
+            <div class="table100-nextcols">
+              <table>
+                <thead>
+                  <tr class="row100 head">
+                    <td class="cell100 column1">Enrollment No.</td>
+                    <td class="cell100 column2">Name</td>
+                    <td class="cell100 column3">Class</td>
+                    <td class="cell100 column4">Date</td>
+                    <td class="cell100 column5">Time</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% if data %} {% for s in data %}
+
+                  <tr class="row100 body">
+                    <td class="cell100 column1">{{s.0}}</td>
+                    <td class="cell100 column2">{{s.1}}</td>
+                    <td class="cell100 column3">{{s.2}}</td>
+                    <td class="cell100 column4">{{s.3}}</td>
+                    <td class="cell100 column5">{{s.4}}</td>
+                    <td class="cell100 column6">{{s.5}}</td>
+                  </tr>
+                  {% endfor %} {% else %}
+                  <p>No Data Found</p>
+                  {% endif %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

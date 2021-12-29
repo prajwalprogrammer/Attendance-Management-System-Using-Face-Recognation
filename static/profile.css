@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: montserrat, Arial, Helvetica, sans-serif;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: #7e7e7e;
+  background: linear-gradient(135deg, #7e7e7e 0%, #3f3f3f 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #efefef;
+  display: flex;
+  padding: 0 4rem;
+  height: 5rem;
+  align-items: center;
+}
+
+.logo {
+  margin: 0 auto 0 0;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.logout {
+  margin: 0 350px 0;
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+
+main {
+  display: flex;
+  margin: 5rem 15rem;
+  background-color: white;
+}
+
+.graphics {
+  width: 50%;
+  padding: 3rem;
+  display: flex;
+}
+
+.graphic-img {
+  height: auto;
+  width: 100%;
+  margin: auto;
+}
+
+.profile-info {
+  width: 50%;
+  padding: 3em;
+  overflow: auto;
+}
+
+.user-profile-image-box {
+  padding: 1rem 0;
+  margin: 0 5rem 0 5rem;
+}
+
+.profile-image {
+  height: auto;
+  width: 6rem;
+}
+
+.user-info {
+  margin: 0 5rem;
+}
+
+.label-data {
+  display: flex;
+  padding: 1.5rem 0.5rem;
+  justify-content: space-between;
+}
+
+.label {
+  font-weight: bold;
+  font-size: large;
+  width: 40%;
+}
+
+.data {
+  width: 60%;
+  text-align: left;
+  border: 1px solid black;
+  padding: 3px 3px;
+}

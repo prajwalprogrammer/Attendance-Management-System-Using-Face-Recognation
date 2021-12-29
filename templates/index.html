@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <link rel="stylesheet" href="{%static '/index.css' %}" />
+    <link
+      rel="shortcut icon"
+      href="{%static '/images/favicon.ico' %}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <style>
+      .signUp-login {
+        margin: 0 0 0 20px;
+        display: flex;
+        justify-content: space-between;
+      width: 40%;
+      }
+      <!-- .signUp-login a{
+        margin left: 20px;
+      } -->
+      .backimg{
+        background-size: cover;
+      }
+      .footer{
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
+    <header>
+      <h1 class="logo">
+        Attendance Management system
+      </h1>
+      {%if user.is_authenticated %}
+      <div class="profile-box">
+        <a href="/profile">
+          <img
+            class="profile-image"
+            src="{%static 'images/profile-icon.svg' %}"
+            alt=""
+          />
+        </a>
+        <h3 class="User-name">{{user.first_name}}</h3>
+      </div>
+      {% else %}
+      <h3 class="signUp-login">
+        <a class="pad" href="/MarkAttendance/"> Mark Attendance</a>
+        <a class="pad" href="/aboutus"> About Us</a>
+        <a class="pad" href="/login/"> Login/Sign Up</a>
+      </h3>
+      <!-- <nav class="Navbar">
+      <ul>
+        <li><a href="">Mark Attendance</a></li>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Login/Sign Up</a></li>
+      </ul>
+    </nav> -->
+      {% endif %}
+    </header>
+    <main>
+      <!-- Content changes here -->
+      <img src="../static/images/aiimager.PNG" class="backimg" alt="" width="100%">
+    <footer class="footer">
+      Copyright &copy All Rights are Reserved
+    </footer>
+    </main>
+  </body>
+</html>

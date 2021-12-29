@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{%static '/signup.css' %}" />
+    <link
+      rel="shortcut icon"
+      href="{%static '/images/favicon.ico' %}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="logo"> Attendance Management system </a>
+    </header>
+
+    <main>
+      <!-- Content changes here -->
+      <div class="container">
+        <h2>Sign Up</h2>
+        <form action="/sign_up/" class="form-container" method="POST">
+          {% csrf_token %}
+          <label for="name">Name</label>
+          <input type="text" name="name" id="" placeholder="Name" />
+
+          <label for="username">Enrollment Number</label>
+          <input
+            type="text"
+            name="username"
+            id=""
+            placeholder="Enrollment Number"
+          />
+
+          <label for="gmail">Class Name</label>
+          <input type="text" name="gmail" id="" placeholder="Class Name" />
+
+          <label for="password">Password</label>
+          <input type="password" name="password" id="" placeholder="password" />
+          {% for message in messages %} {% if message.tags == "error" %}
+
+          <p style="color: red">{{message}}</p>
+
+          {% elif message.tags == "info" %}
+
+          <script>
+            window.onload = function () {
+              alert("{{message}}");
+            };
+          </script>
+          {% endif %} {% endfor %}
+          <button type="submit">Sign Up</button>
+        </form>
+        <hr />
+        <p>Don't have an account? <a href="/login">Login</a></p>
+      </div>
+      <!-- Content changes end here -->
+    </main>
+  </body>
+</html>
